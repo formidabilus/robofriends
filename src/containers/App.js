@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { HashRouter } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import "./App.css";
+
+const TITLE = "Robofriends | Razvan Chiriac";
 
 class App extends Component {
   constructor() {
@@ -33,6 +36,9 @@ class App extends Component {
       <h1 className="tc">Loading...</h1>
     ) : (
       <div className="tc">
+        <Helmet>
+          <title> {TITLE} </title>
+        </Helmet>
         <HashRouter basename={process.env.PUBLIC_URL}>
           <h1 className="f1">RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange} />
